@@ -120,3 +120,11 @@ test('footer stays fully contrasted through hover transitions', async () => {
   assert.match(styles, /\.footer-qr-link:hover\s*\{[^}]*text-decoration-color:\s*currentColor/s);
   assert.doesNotMatch(styles, /\.footer-qr-link:hover\s*\{[^}]*opacity:/s);
 });
+
+test('hides the visual scrollbar without disabling page scrolling', async () => {
+  const styles = await readFile(new URL('variables.css', root), 'utf8');
+
+  assert.match(styles, /html\s*\{[^}]*scrollbar-width:\s*none/s);
+  assert.match(styles, /html::?-webkit-scrollbar\s*\{[^}]*display:\s*none/s);
+  assert.doesNotMatch(styles, /html\s*\{[^}]*overflow:\s*hidden/s);
+});
