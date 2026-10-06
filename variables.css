@@ -191,7 +191,6 @@ img { display: block; max-width: 100%; }
 
 .button:hover,
 .inline-link:hover,
-.footer-qr-link:hover,
 .main-nav a:hover,
 .social-link:hover {
   opacity: 0.82;
@@ -777,7 +776,7 @@ h1, h2, h3 {
 }
 
 .footer-credit {
-  color: rgba(31, 31, 31, 0.75);
+  color: var(--color-iron);
 }
 
 .footer-qr-link {
@@ -786,7 +785,13 @@ h1, h2, h3 {
   gap: 8px;
   font-size: 15px;
   letter-spacing: -0.03em;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 180ms ease;
 }
+
+.footer-qr-link:hover { text-decoration-color: currentColor; }
 
 .back-to-top {
   display: grid;

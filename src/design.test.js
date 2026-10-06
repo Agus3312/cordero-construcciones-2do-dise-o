@@ -95,3 +95,11 @@ test('both pages load the single variables stylesheet directly', async () => {
   assert.match(qr, /rel="stylesheet" href="\/variables\.css"/);
   assert.match(styles, /--line-color:/);
 });
+
+test('footer stays fully contrasted through hover transitions', async () => {
+  const styles = await readFile(new URL('variables.css', root), 'utf8');
+
+  assert.match(styles, /\.footer-credit\s*\{[^}]*color:\s*var\(--color-iron\)/s);
+  assert.match(styles, /\.footer-qr-link:hover\s*\{[^}]*text-decoration-color:\s*currentColor/s);
+  assert.doesNotMatch(styles, /\.footer-qr-link:hover\s*\{[^}]*opacity:/s);
+});
