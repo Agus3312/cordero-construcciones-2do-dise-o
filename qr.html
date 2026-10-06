@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#d9d9d9" />
+    <title>QR para imprimir | Cordero Oscar Francisco</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/variables.css" />
+  </head>
+  <body class="qr-page">
+    <header class="qr-header">
+      <a class="brand" href="/" aria-label="Volver al sitio de Cordero Oscar Francisco">
+        <span class="brand-wordmark">CO</span>
+      </a>
+      <a class="qr-back-link" href="/">Volver al sitio <span class="material-symbols-outlined" aria-hidden="true">north_east</span></a>
+    </header>
+
+    <main class="qr-main">
+      <section class="qr-heading">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Material para imprimir</p>
+        <h1>Códigos que<br /><em>acercan.</em></h1>
+        <p>Prepará un acceso directo para tu sitio, Instagram y WhatsApp.</p>
+      </section>
+
+      <section class="qr-panel" aria-labelledby="qr-form-title">
+        <div class="qr-panel-heading">
+          <div>
+            <p class="eyebrow">Destinos</p>
+            <h2 id="qr-form-title">Completá los enlaces</h2>
+          </div>
+          <span class="qr-panel-mark material-symbols-outlined" aria-hidden="true">auto_awesome</span>
+        </div>
+
+        <form id="qr-form" class="qr-form" novalidate>
+          <label for="site-url">Sitio web <span>QR general</span></label>
+          <input id="site-url" name="siteUrl" type="url" inputmode="url" placeholder="https://tudominio.com.ar" autocomplete="url" />
+
+          <label for="instagram-url">Instagram</label>
+          <input id="instagram-url" name="instagramUrl" type="text" inputmode="url" placeholder="@usuario o instagram.com/usuario" autocomplete="url" />
+
+          <label for="whatsapp-phone">WhatsApp <span>acepta formato local argentino</span></label>
+          <input id="whatsapp-phone" name="whatsappPhone" type="tel" inputmode="tel" placeholder="11 2345 6789 o +54 9 11..." autocomplete="tel" />
+
+          <label for="facebook-url">Facebook <span>opcional</span></label>
+          <input id="facebook-url" name="facebookUrl" type="url" inputmode="url" placeholder="https://facebook.com/tu-pagina" autocomplete="url" />
+
+          <div class="qr-form-actions">
+            <button class="button button-dark" type="submit">Generar códigos <span class="material-symbols-outlined" aria-hidden="true">north_east</span></button>
+            <button class="button button-print" id="print-qrs" type="button" disabled>Imprimir hoja <span class="material-symbols-outlined" aria-hidden="true">print</span></button>
+          </div>
+          <p class="qr-status" id="qr-status" role="status" aria-live="polite">Acepta @usuario, teléfono local o dominio sin https.</p>
+        </form>
+      </section>
+
+      <section class="qr-output" aria-labelledby="qr-output-title">
+        <div class="qr-output-heading">
+          <div>
+            <p class="eyebrow">Tu selección</p>
+            <h2 id="qr-output-title">Códigos disponibles</h2>
+          </div>
+          <span id="qr-count" class="qr-count">0</span>
+        </div>
+        <div class="qr-results" id="qr-results" aria-live="polite"></div>
+      </section>
+
+      <footer class="qr-footer"><span>Cordero Oscar Francisco · Ser.Co.Ok</span><span>SVG para impresión · PNG para compartir</span></footer>
+    </main>
+
+    <script type="module" src="/src/qr.js"></script>
+  </body>
+</html>
