@@ -820,7 +820,6 @@ h1, h2, h3 {
 .reveal-item {
   opacity: var(--scroll-reveal-progress, 0);
   translate: var(--scroll-reveal-x, 0px) var(--scroll-reveal-y, 18px);
-  transition: opacity 80ms linear, translate 80ms linear;
 }
 
 .reveal-item.is-visible {

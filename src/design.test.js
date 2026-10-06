@@ -82,8 +82,12 @@ test('text stays hidden until the final 20 percent of its scroll reveal', async 
   ]);
 
   assert.match(main, /revealThreshold\s*=\s*0\.8/);
+  assert.match(main, /revealStart\s*=\s*viewportHeight\s*\*\s*1\.8/);
+  assert.match(main, /revealDistance\s*=\s*viewportHeight\s*;/);
   assert.match(main, /progress\s*-\s*revealThreshold/);
-  assert.match(styles, /opacity:\s*var\(--scroll-reveal-progress,\s*0\)/);
+  const revealRule = styles.match(/\.reveal-item\s*\{[^}]*\}/s)?.[0] ?? '';
+  assert.match(revealRule, /opacity:\s*var\(--scroll-reveal-progress,\s*0\)/);
+  assert.doesNotMatch(revealRule, /transition:/);
 });
 
 test('work and service cards have defined borders, shadows, and hover motion', async () => {

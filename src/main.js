@@ -129,8 +129,8 @@ if (prefersReducedMotion) {
   const updateScrollReveal = () => {
     scrollFrame = 0;
     const viewportHeight = window.innerHeight;
-    const revealStart = viewportHeight * 0.9;
-    const revealDistance = viewportHeight * 0.56;
+    const revealStart = viewportHeight * 1.8;
+    const revealDistance = viewportHeight;
     const revealThreshold = 0.8;
 
     revealTargets.forEach((element) => {
