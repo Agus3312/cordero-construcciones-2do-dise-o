@@ -13,6 +13,7 @@ const menuIcon = menuToggle.querySelector('.material-symbols-outlined');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuLinks = mobileMenu.querySelectorAll('a');
 const headerBrand = document.querySelector('.site-header .brand');
+const headerInline = document.querySelector('.header-inline');
 const pageRegions = document.querySelectorAll('main, .site-footer');
 
 function setMenuOpen(isOpen, restoreFocus = false) {
@@ -24,6 +25,7 @@ function setMenuOpen(isOpen, restoreFocus = false) {
   mobileMenu.classList.toggle('is-open', isOpen);
   document.body.classList.toggle('menu-open', isOpen);
   headerBrand.inert = isOpen;
+  headerInline.inert = isOpen;
   pageRegions.forEach((region) => {
     region.inert = isOpen;
   });

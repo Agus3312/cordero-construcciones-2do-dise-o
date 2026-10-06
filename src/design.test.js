@@ -19,11 +19,13 @@ test('homepage exposes an accessible expanded navigation panel', async () => {
 
   assert.match(home, /class="menu-toggle"[^>]*aria-expanded="false"/);
   assert.match(home, /class="mobile-menu"[^>]*aria-label="Navegación principal"/);
-  assert.match(home, /class="menu-mark"[^>]*>1<\/span>/);
+  assert.doesNotMatch(home, /class="menu-mark"/);
+  assert.match(home, /class="menu-contact"/);
   assert.match(home, /href="#servicios"/);
   assert.match(home, /href="#trabajos"/);
   assert.match(home, /href="#proceso"/);
   assert.match(home, /href="#contacto"/);
+  assert.match(home, /href="https:\/\/www\.instagram\.com\/ser\.co\.ok\/"/);
 });
 
 test('homepage wires scroll reveals and honors reduced-motion preferences', async () => {
