@@ -131,15 +131,17 @@ if (prefersReducedMotion) {
     const viewportHeight = window.innerHeight;
     const revealStart = viewportHeight * 0.9;
     const revealDistance = viewportHeight * 0.56;
+    const revealThreshold = 0.8;
 
     revealTargets.forEach((element) => {
       const progress = Math.max(0, Math.min(1, (revealStart - element.getBoundingClientRect().top) / revealDistance));
-      const remaining = 1 - progress;
+      const opacityProgress = Math.max(0, Math.min(1, (progress - revealThreshold) / (1 - revealThreshold)));
+      const remaining = 1 - opacityProgress;
       const lateralDirection = element.classList.contains('property-card')
         ? (element.matches(':nth-child(odd)') ? -1 : 1)
         : 0;
 
-      element.style.setProperty('--scroll-reveal-progress', progress.toFixed(3));
+      element.style.setProperty('--scroll-reveal-progress', opacityProgress.toFixed(3));
       element.style.setProperty('--scroll-reveal-x', `${lateralDirection * 42 * remaining}px`);
       element.style.setProperty('--scroll-reveal-y', `${18 * remaining}px`);
       element.classList.toggle('is-visible', progress >= 1);

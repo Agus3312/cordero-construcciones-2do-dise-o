@@ -75,6 +75,17 @@ test('scroll reveals track scroll position continuously', async () => {
   assert.match(main, /getBoundingClientRect\(\)\.top/);
 });
 
+test('text stays hidden until the final 20 percent of its scroll reveal', async () => {
+  const [main, styles] = await Promise.all([
+    readFile(new URL('src/main.js', root), 'utf8'),
+    readFile(new URL('variables.css', root), 'utf8')
+  ]);
+
+  assert.match(main, /revealThreshold\s*=\s*0\.8/);
+  assert.match(main, /progress\s*-\s*revealThreshold/);
+  assert.match(styles, /opacity:\s*var\(--scroll-reveal-progress,\s*0\)/);
+});
+
 test('work and service cards have defined borders, shadows, and hover motion', async () => {
   const styles = await readFile(new URL('variables.css', root), 'utf8');
 
